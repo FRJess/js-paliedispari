@@ -1,5 +1,3 @@
-console.log("FILE PRESENTE")
-
 // **Palindroma**
 // Chiedere all’utente di inserire una parola
 // Creare una funzione per capire se la parola inserita è palindroma
@@ -17,24 +15,25 @@ console.log("FILE PRESENTE")
 
 
 // PALINDROMA
+
 // VARIABLES DECLARATION AND INIZIALIZATION
 // html elements
 const wordInput = document.getElementById("word-input");
 const result = document.getElementById("result");
 
-// prompt inserisci parola
+// prompt choose word
 const parola = prompt("Inserisci una parola");
 
-//dividere la parola
+//divide word
 const parolaDivisa = parola.split("");
 
-// invertire parola
+// invert word
 const parolaInvert = parolaDivisa.reverse("");
 
-//riunire parola divisa
+//join inverted word
 const parolaInvertMerge = parolaDivisa.join("");
 
-// Function check se palindromo
+// Function check if palindrome
 function checkParola(){
   if (parola === parolaInvertMerge){
   messaggio = "è un palindromo"
@@ -55,6 +54,7 @@ palindromo = checkParola (console.log(parola));
 // PARI O DISPARI
 
 //VARIABLES DECLARATION AND INITIALIZATION
+// html elements
 const userChoice = document.getElementById("input-pari-dispari");
 const inputBtn = document.getElementById("gioca");
 const resetBtn = document.getElementById("reset");
@@ -71,14 +71,15 @@ resetBtn.addEventListener('click', function(){
     outputComputer.innerHTML = '';
 })
 
+//play
 inputBtn.addEventListener('click',function(){
 
-    //blocca il programma se non vengono inseriti entrambi i valori
+    //check both values
     if(userNumero.value === "" || userChoice.value === "" ){
         finalResult.innerHTML = 'Inserisci un numero valido';
         finalResult.classList.add("text-info")
     }else{
-        //verifico il vincitore
+        //check winner
         let computerNum = randomNumber();
         outputComputer.innerHTML = `Il numero scelto dal computer ${computerNum}.`
         if(userChoice.value === checkPariDispari(userNumero.value, computerNum)){
@@ -90,14 +91,14 @@ inputBtn.addEventListener('click',function(){
         }
     })
 
-// funzioni
+// FUNCTIONS
 
-//estraggo un numero random da 1 a 5
+//random number 1 to 5
 function randomNumber(){
     return Math.floor(Math.random() * 5) + 1;
 }
 
-//somma dei due numeri e verifica se pari o dispari
+//adition two numbers
 function checkPariDispari(num1, num2){
     const somma = parseInt(num1) + parseInt(num2);
     if(somma % 2) return 'dispari' ;
