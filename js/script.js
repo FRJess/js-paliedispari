@@ -15,6 +15,10 @@ console.log("FILE PRESENTE")
 // 1. Scriviamo sempre in italiano i passaggi che vogliamo fare
 // 2. Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
 
+
+// PALINDROMA
+// VARIABLES DECLARATION AND INIZIALIZATION
+// html elements
 const wordInput = document.getElementById("word-input");
 const result = document.getElementById("result");
 
@@ -30,8 +34,7 @@ const parolaInvert = parolaDivisa.reverse("");
 //riunire parola divisa
 const parolaInvertMerge = parolaDivisa.join("");
 
-// check se palindromo
-
+// Function check se palindromo
 function checkParola(){
   if (parola === parolaInvertMerge){
   messaggio = "è un palindromo"
@@ -46,3 +49,11 @@ function checkParola(){
 };
 
 palindromo = checkParola (console.log(parola));
+
+// ====================================================================
+
+// PARI O DISPARI
+
+//VARIABLES DECLARATION AND INITIALIZATION
+
+
