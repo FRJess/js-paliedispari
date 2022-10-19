@@ -2,11 +2,11 @@ body{
   background-color: #615D6C;
 }
 
-.jt-container, .ticket{
+.jt-container{
   margin-top: 100px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   padding: 150px 200px;
   text-align: center;
-  background-color: #CAE5FF;
+  background-color: #8AC4FF;
 }

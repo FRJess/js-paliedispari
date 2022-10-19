@@ -15,6 +15,9 @@ console.log("FILE PRESENTE")
 // 1. Scriviamo sempre in italiano i passaggi che vogliamo fare
 // 2. Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
 
+const wordInput = document.getElementById("word-input");
+const result = document.getElementById("result");
+
 // prompt inserisci parola
 const parola = prompt("Inserisci una parola");
 
@@ -28,15 +31,18 @@ const parolaInvert = parolaDivisa.reverse("");
 const parolaInvertMerge = parolaDivisa.join("");
 
 // check se palindromo
-palindromo = checkParola (console.log(parola));
+
 function checkParola(){
   if (parola === parolaInvertMerge){
   messaggio = "è un palindromo"
-  console.log("è un palindromo");
+  result.classList.add("text-success")
  }
   else{
     messaggio = "non è un palindromo"
-    console.log("non è un palindromo")
+    result.classList.add("text-danger")
   };
-  document.getElementById("wordInput").innerHTML = `${parola} ${messaggio}.`
+  wordInput.innerHTML = `${parola}`
+  result.innerHTML =  `${messaggio}.`
 };
+
+palindromo = checkParola (console.log(parola));
