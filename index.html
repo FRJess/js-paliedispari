@@ -15,8 +15,8 @@
   <div class="container jt-container">
     <div class="row">
       <div class="col">
-        <h2>La tua parola</h2>
-        <div class="text-light fs-4" id="word-input"></div>
+        <h3>La tua parola</h3>
+        <div class="text fs-4 border border-3 border-secondary bg-secondary bg-opacity-25 rounded" id="word-input"></div>
         <div class="fs-4" id="result"></div>
       </div>
     </div>
@@ -25,11 +25,39 @@
   <!-- GAME SECTION -->
   <section class="container jt-container-2 pb-5 text-white">
     <div class="row text-center">
+      <h3 class="text text-dark">Indovina se la somma dei numeri sarà...</h3>
+      <div class="col">
+        <div class="input-group mb-3">
+            <select class="form-select scelta-utente" id="input-pari-dispari">
+              <option value="">Pari o Dispari?</option>
+              <option value="pari">Pari</option>
+              <option value="dispari">Dispari</option>
+            </select>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="input-group mb-3">
+            <select class="form-select numero-utente" id="input-numero">
+                <option value="">Scegli un numero...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-4">
+      <div class="col-12 text-center">
+          <button type="button" class="btn btn-outline-success me-3" id="gioca">GIOCA!</button>
+          <button type="button" class="btn btn-outline-danger" id="reset">RIPROVA</button>
+      </div>
       <div class="col-12">
-        <button type="button" id="btn-pari" class="btn btn-outline-light px-5 m-4">Pari</button>
-        <span class="text">o</span>
-        <button type="button" id="btn-dispari" class="btn btn-outline-light px-5 m-4">Dispari</button>
-        <div id="output-numeri"></div>
+        <p class="text-center pt-3 fw-bold" id="numero-computer"></p>
+        <h3 class="text-center pt-4 text-success fw-bold" id="result-numero"></h3>
       </div>
     </div>
   </section>

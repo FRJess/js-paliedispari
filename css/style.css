@@ -1,5 +1,5 @@
 body{
-  background-color: #615D6C;
+  background-color: #EC0B43;
 }
 
 .jt-container{
@@ -8,7 +8,7 @@ body{
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   padding: 150px 200px;
   text-align: center;
-  background-color: #8AC4FF;
+  background-color: #D6FFB7;
 }
 
 .jt-container-2{
@@ -17,10 +17,14 @@ body{
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   padding: 150px 200px;
   text-align: center;
-  background-color: #153B50;
+  background-color: #FFF689;
 }
 
-.outputResult{
+#result{
   margin-top: 10px;
-  color: #153B50;
+}
+
+#result-numero, #numero-computer{
+  margin-top: 10px;
+  color: #58355E;
 }

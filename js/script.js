@@ -55,5 +55,53 @@ palindromo = checkParola (console.log(parola));
 // PARI O DISPARI
 
 //VARIABLES DECLARATION AND INITIALIZATION
+const userChoice = document.getElementById("input-pari-dispari");
+const inputBtn = document.getElementById("gioca");
+const resetBtn = document.getElementById("reset");
+const finalResult = document.getElementById("result-numero");
+const outputComputer = document.getElementById("numero-computer");
+let userNumero = document.getElementById("input-numero");
 
+
+//reset
+resetBtn.addEventListener('click', function(){
+    userChoice.selectedIndex = 0;
+    userNumero.selectedIndex = 0;
+    finalResult.innerHTML = '';
+    outputComputer.innerHTML = '';
+})
+
+inputBtn.addEventListener('click',function(){
+
+    //blocca il programma se non vengono inseriti entrambi i valori
+    if(userNumero.value === "" || userChoice.value === "" ){
+        finalResult.innerHTML = 'Inserisci un numero valido';
+        finalResult.classList.add("text-info")
+    }else{
+        //verifico il vincitore
+        let computerNum = randomNumber();
+        outputComputer.innerHTML = `Il numero scelto dal computer ${computerNum}.`
+        if(userChoice.value === checkPariDispari(userNumero.value, computerNum)){
+            finalResult.innerHTML = 'Hai vinto!'
+        }else{
+            finalResult.innerHTML = 'Hai perso!'
+            finalResult.classList.add("text-danger")
+            }
+        }
+    })
+
+// funzioni
+
+//estraggo un numero random da 1 a 5
+function randomNumber(){
+    return Math.floor(Math.random() * 5) + 1;
+}
+
+//somma dei due numeri e verifica se pari o dispari
+function checkPariDispari(num1, num2){
+    const somma = parseInt(num1) + parseInt(num2);
+    if(somma % 2) return 'dispari' ;
+
+    return 'pari';
+}
 
