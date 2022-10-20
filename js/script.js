@@ -24,7 +24,9 @@ const result = document.getElementById("result");
 // prompt choose word
 const parola = prompt("Inserisci una parola");
 
-//divide word
+// METODO 1 con split + reverse
+
+// divide word
 const parolaDivisa = parola.split("");
 
 // invert word
@@ -35,7 +37,7 @@ const parolaInvertMerge = parolaDivisa.join("");
 
 // Function check if palindrome
 function checkParola(){
-  if (parola === parolaInvertMerge){
+  if (parola.toLowerCase().trim() === parolaInvertMerge.toLowerCase().trim()){
   messaggio = "è un palindromo"
   result.classList.add("text-success")
  }
@@ -46,6 +48,15 @@ function checkParola(){
   wordInput.innerHTML = `${parola}`
   result.innerHTML =  `${messaggio}.`
 };
+
+// //METODO 2 Function revert word
+// function parolaInvert(parola){
+//     let parolaInvert = "";
+
+//     for(let i = parola.length - 1; i >=0; i--){
+//         parolaInvert += parola[i];
+//     }
+// }
 
 palindromo = checkParola (console.log(parola));
 
@@ -62,14 +73,13 @@ const finalResult = document.getElementById("result-numero");
 const outputComputer = document.getElementById("numero-computer");
 let userNumero = document.getElementById("input-numero");
 
-
 //reset
 resetBtn.addEventListener('click', function(){
     userChoice.selectedIndex = 0;
     userNumero.selectedIndex = 0;
     finalResult.innerHTML = '';
     outputComputer.innerHTML = '';
-})
+});
 
 //play
 inputBtn.addEventListener('click',function(){
@@ -77,26 +87,33 @@ inputBtn.addEventListener('click',function(){
     //check both values
     if(userNumero.value === "" || userChoice.value === "" ){
         finalResult.innerHTML = 'Inserisci un numero valido';
-        finalResult.classList.add("text-info")
+        finalResult.classList.add("text-info");
+        finalResult.classList.remove("text-success");
+        finalResult.classList.remove("text-danger");
     }else{
         //check winner
-        let computerNum = randomNumber();
-        outputComputer.innerHTML = `Il numero scelto dal computer ${computerNum}.`
+        let computerNum = randomNumber(1, 5);
+        outputComputer.innerHTML = `Il numero tirato dal computer è ${computerNum}.`
         if(userChoice.value === checkPariDispari(userNumero.value, computerNum)){
-            finalResult.innerHTML = 'Hai vinto!'
+            finalResult.innerHTML = 'Hai vinto!';
+            finalResult.classList.add("text-success");
+            finalResult.classList.remove("text-danger");
+            finalResult.classList.remove("text-info");
         }else{
-            finalResult.innerHTML = 'Hai perso!'
-            finalResult.classList.add("text-danger")
+            finalResult.innerHTML = 'Hai perso!';
+            finalResult.classList.add("text-danger");
+            finalResult.classList.remove("text-success");
+            finalResult.classList.remove("text-info");
             }
         }
-    })
+    });
 
 // FUNCTIONS
 
 //random number 1 to 5
-function randomNumber(){
-    return Math.floor(Math.random() * 5) + 1;
-}
+function randomNumber(max, min){
+    return Math.floor(Math.random() * (max - min +1)) + min;
+};
 
 //adition two numbers
 function checkPariDispari(num1, num2){
@@ -104,5 +121,5 @@ function checkPariDispari(num1, num2){
     if(somma % 2) return 'dispari' ;
 
     return 'pari';
-}
+};
 
